@@ -1,6 +1,14 @@
 let rootURL = document.baseURI
 const body = document.querySelector('body');
 
+var lang = localStorage.getItem('lang') || 'cn';
+var darkMode = localStorage.getItem('darkMode') === 'true';
+
+var root = document.querySelector(':root');
+root.classList = darkMode ? "dark" : "";
+
+var showAllCornerNames = localStorage.getItem('showAllCornerNames')  === 'true';
+
 var d = new Vue({
   el: '#app',
   data: {
@@ -11,8 +19,8 @@ var d = new Vue({
     mY: 0,
     lang: lang,
     showModal: false,
-    showAllCornerNames: false,
-    darkMode: false,
+    showAllCornerNames,
+    darkMode,
     showCorner: false,
     showSection: false,
     currentCorner: null,
@@ -23,10 +31,10 @@ var d = new Vue({
     sectionEnd: 0,
     bridges: [
       {
-        "stx":.0855,
-        "sty":.508,
-        "edx":.091,
-        "edy":.528,
+        "stx": .0855,
+        "sty": .508,
+        "edx": .091,
+        "edy": .528,
         "pt": .188,
         "x": .104,
         "y": .5,
@@ -36,10 +44,10 @@ var d = new Vue({
         "en": "Yokohama Bridge",
       },
       {
-        "stx":.666,
-        "sty":.644,
-        "edx":.675,
-        "edy":.662,
+        "stx": .666,
+        "sty": .644,
+        "edx": .675,
+        "edy": .662,
         "pt": .869,
         "x": .663,
         "y": .634,
@@ -48,10 +56,10 @@ var d = new Vue({
         "ch": "BTG 终点桁架",
       },
       {
-        "stx":.47,
-        "sty":.796,
-        "edx":.479,
-        "edy":.813,
+        "stx": .47,
+        "sty": .796,
+        "edx": .479,
+        "edy": .813,
         "pt": .949,
         "x": .484,
         "y": .818,
@@ -84,10 +92,10 @@ var d = new Vue({
       //   "de": "Fuchsröhre",
       // }
       {
-        "st":.681,
-        "ed":.701,
-        "x":.901,
-        "y":.290,
+        "st": .681,
+        "ed": .701,
+        "x": .901,
+        "y": .290,
         "h": "r",
         "v": "m",
         "ch": "小水井",
@@ -133,10 +141,10 @@ var d = new Vue({
         // "nk": "弧形弯",
       },
       {
-        "st":.033,
-        "ed":.063,
-        "x":.262,
-        "y":.896,
+        "st": .033,
+        "ed": .063,
+        "x": .262,
+        "y": .896,
         "h": "l",
         "v": "b",
         "ch": "Hatzenbach",
@@ -298,7 +306,7 @@ var d = new Vue({
             "author": "PetrolArt"
           },
         ],
-      }, 
+      },
       // {
       //   "st": .188,
       //   "ed": .203,
@@ -310,10 +318,10 @@ var d = new Vue({
       //   "nk": "横滨走廊",
       // }, 
       {
-        "st":.205,
-        "ed":.237,
-        "x":.155,
-        "y":.440,
+        "st": .205,
+        "ed": .237,
+        "x": .155,
+        "y": .440,
         "h": "r",
         "v": "b",
         "ch": "狐狸洞",
@@ -349,7 +357,7 @@ var d = new Vue({
             "src": "adenau-f-1.jpg",
           },
         ],
-      }, 
+      },
       {
         "st": .277,
         "ed": .285,
@@ -361,7 +369,7 @@ var d = new Vue({
         "de": "Metzgesfeld 1",
         "en": "Metzges Field 1",
         // "nk": "羊弯 1"
-      }, 
+      },
       {
         "st": .291,
         "ed": .296,
@@ -379,7 +387,7 @@ var d = new Vue({
             "author": "alavigne.net"
           },
         ],
-      }, 
+      },
       {
         "st": .305,
         "ed": .313,
@@ -390,7 +398,7 @@ var d = new Vue({
         "ch": "Kallenhard",
         "en": "Kallen Hard",
         "de": "Kallenhard"
-      }, 
+      },
       {
         "st": .319,
         "ed": .328,
@@ -410,7 +418,7 @@ var d = new Vue({
             "author": "Nic2209"
           },
         ],
-      }, 
+      },
       {
         "st": .329,
         "ed": .343,
@@ -429,7 +437,7 @@ var d = new Vue({
             "author": "Misha Charoudin"
           },
         ],
-      }, 
+      },
       {
         "st": .347,
         "ed": .359,
@@ -453,7 +461,7 @@ var d = new Vue({
             "author": "PetrolArt"
           },
         ],
-      }, 
+      },
       {
         "st": .372,
         "ed": .383,
@@ -478,7 +486,7 @@ var d = new Vue({
             "author": "Nordschleife 1927"
           },
         ],
-      }, 
+      },
       {
         "st": .385,
         "ed": .392,
@@ -497,7 +505,7 @@ var d = new Vue({
             "author": "Burkhard Köhr"
           },
         ],
-      }, 
+      },
       {
         "st": .408,
         "ed": .417,
@@ -526,7 +534,7 @@ var d = new Vue({
             "author": "Anefo"
           },
         ],
-      }, 
+      },
       {
         "st": .42,
         "ed": .432,
@@ -550,7 +558,7 @@ var d = new Vue({
             "author": "Knöchel"
           },
         ],
-      }, 
+      },
       {
         "st": .466,
         "ed": .480,
@@ -569,7 +577,7 @@ var d = new Vue({
             "author": "PROBEICH"
           },
         ],
-      }, 
+      },
       {
         "st": .513,
         "ed": .526,
@@ -581,7 +589,7 @@ var d = new Vue({
         "en": "Courage Curve",
         "de": "Mutkurve",
         "more": "这个著名弯角的恐怖之处在于很高的速度和极小的容错空间，只有当你拥有足够的勇气才能全速通过"
-      }, 
+      },
       {
         "st": .531,
         "ed": .544,
@@ -599,7 +607,7 @@ var d = new Vue({
             "url": "https://sfcriga.com/nurburgring-the-most-challenging-race-track-in-the-world"
           },
         ],
-      }, 
+      },
       {
         "st": .552,
         "ed": .560,
@@ -623,7 +631,7 @@ var d = new Vue({
             "author": "Pro Steilstrecke"
           },
         ],
-      }, 
+      },
       {
         "st": .571,
         "ed": .586,
@@ -647,7 +655,7 @@ var d = new Vue({
             "author": "BridgeToGantry"
           },
         ],
-      }, 
+      },
       {
         "st": .624,
         "ed": .633,
@@ -672,7 +680,7 @@ var d = new Vue({
             "author": "eifel.info"
           },
         ],
-      }, 
+      },
       {
         "st": .636,
         "ed": .65,
@@ -684,7 +692,7 @@ var d = new Vue({
         "en": "Hedgwig Height",
         "de": "Hedgwigshöhe",
         "more": "纽博格林赛道能建成多亏了当时 Eifel 地区的议员 Otto Creuz 博士，而他也用自己妻子的名字 Hedgwig 命名了这个弯道"
-      }, 
+      },
       {
         "st": .65,
         "ed": .66,
@@ -703,7 +711,7 @@ var d = new Vue({
             "author": "Porsche"
           },
         ],
-      }, 
+      },
       {
         "st": .662,
         "ed": .681,
@@ -720,8 +728,8 @@ var d = new Vue({
             "url": "https://www.locationscout.net/germany/22886-eschbach-nuerburgring-nordschleife",
             "author": "Marco"
           },
-        ],        
-      }, 
+        ],
+      },
       {
         "st": .692,
         "ed": .701,
@@ -745,7 +753,7 @@ var d = new Vue({
             "author": "japanpower22"
           },
         ],
-      }, 
+      },
       {
         "st": .705,
         "ed": .715,
@@ -764,7 +772,7 @@ var d = new Vue({
             "author": "Porsche"
           },
         ],
-      }, 
+      },
       {
         "st": .721,
         "ed": .745,
@@ -787,7 +795,7 @@ var d = new Vue({
             "author": "BedaNo1"
           },
         ],
-      }, 
+      },
       {
         "st": .746,
         "ed": .762,
@@ -805,7 +813,7 @@ var d = new Vue({
             "author": "BedaNo1"
           },
         ],
-      }, 
+      },
       {
         "st": .763,
         "ed": .783,
@@ -919,7 +927,7 @@ var d = new Vue({
             "author": "PetrolArt"
           },
         ],
-      }, 
+      },
       {
         "st": .947,
         "ed": .959,
@@ -938,7 +946,7 @@ var d = new Vue({
             "author": "RaceRoom"
           },
         ],
-      }, 
+      },
       {
         "st": .966,
         "ed": .979,
@@ -957,7 +965,7 @@ var d = new Vue({
             "author": "nring.info"
           },
         ],
-      }, 
+      },
       {
         "st": .981,
         "ed": .994,
@@ -968,7 +976,7 @@ var d = new Vue({
         "ch": "高雨组合弯",
         "en": "High Altitude Chicane",
         "de": "Hohenrain Schikane",
-      }, 
+      },
       {
         "st": .994,
         "ed": .999,
@@ -992,45 +1000,63 @@ var d = new Vue({
             "author": "PetrolArt"
           },
         ],
-      }, 
+      },
     ],
-    aboutContent: "网页设计 & 开发：<a href='https://jjying.com/' target='_blank'>JJ Ying</a><br/><br/><strong>参考信息:</strong><br/>· <a target='_blank' href='https://oversteer48.com/nurburgring-corner-names/'>Corner Names, Numbers and circuit map</a><br/>· <a target='_blank' href='https://nring.info/nurburgring-nordschleife-corners/'>NRing.info</a><br/>· <a target='_blank' href='https://www.youtube.com/watch?v=-lCR1_cDqTg'>Nürburgring Corner Names Explained</a><br/>· 键盘车神教教主视频：<a target='_blank' href='https://www.bilibili.com/video/BV1NntCe4ETM/'>纽北每一个弯的名字？</a><br/><br/><strong>页面源码:</strong><br/>· <a target='_blank' href='https://github.com/JJYing/Nurburgring-Map'>@GitHub</a>",
+    aboutContent: `
+      网页设计 & 开发：<a href='https://jjying.com/' target='_blank'>JJ Ying</a> & <a href="//lsong.org">Lsong</a>
+      <br/>
+      <br/>
+      <ul>
+        <li><a target='_blank' href='https://oversteer48.com/nurburgring-corner-names/'>Corner Names, Numbers and circuit map</a></li>
+        <li><a target='_blank' href='https://nring.info/nurburgring-nordschleife-corners/'>NRing.info</a></li>
+        <li><a target='_blank' href='https://www.youtube.com/watch?v=-lCR1_cDqTg'>Nürburgring Corner Names Explained</a></li>
+        <li><a target='_blank' href='https://www.bilibili.com/video/BV1NntCe4ETM/'>键盘车神教教主视频：纽北每一个弯的名字？</a></li>
+      </ul>
+      <br />
+      <a target='_blank' href='https://github.com/lsongdev/nurburgring'>Source code on GitHub</a>
+    `,
     modalContent: "",
     modalType: "text"
   },
   methods: {
-    innerModal: function(e){
+    innerModal: function (e) {
       e.stopPropagation()
     },
-    toggleLang(){
-      if(this.lang == "en"){
+    toggleLang() {
+      if (this.lang == "en") {
         this.lang = "cn"
       }
-      else{
+      else {
         this.lang = "en"
       }
+      localStorage.setItem('lang', this.lang);
     },
-    toggleDarkMode(){
+    toggleCornerNames() {
+      this.showAllCornerNames = !this.showAllCornerNames;
+      localStorage.setItem('showAllCornerNames', this.showAllCornerNames);
+    },
+    toggleDarkMode() {
       var root = document.querySelector(':root')
-      this.darkMode =!this.darkMode
-      if(root.classList == ""){
+      this.darkMode = !this.darkMode
+      if (root.classList == "") {
         root.classList = "dark"
       }
-      else{
+      else {
         root.classList = ""
       }
+      localStorage.setItem('darkMode', this.darkMode);
     },
-    setP: function(percentage){
+    setP: function (percentage) {
       this.p = percentage
       window.scrollTo(0, (body.scrollHeight - window.innerHeight) * percentage);
       updateScrollDistance()
     },
-    openModal: function(type, img=null){
+    openModal: function (type, img = null) {
       this.modalType = type
-      if(type == 'text') this.modalContent = this.aboutContent
-      if(type == 'image'){
+      if (type == 'text') this.modalContent = this.aboutContent
+      if (type == 'image') {
         this.modalContent = "<img src='" + 'https://s.anyway.red/nurburgring/' + img.src + '!/quality/80/progressive/true/ignore-error/true' + "'/>"
-        if(img.url) this.modalContent += "<div class='source-in-modal'>@<a href='" + img.url + "' target='_blank'>" + img.author + "</a></div>"
+        if (img.url) this.modalContent += "<div class='source-in-modal'>@<a href='" + img.url + "' target='_blank'>" + img.author + "</a></div>"
       }
       this.showModal = true
     }
@@ -1039,37 +1065,37 @@ var d = new Vue({
 })
 
 
-document.addEventListener('scroll', function(e){
-  if(window.scrollY > 2){
+document.addEventListener('scroll', function (e) {
+  if (window.scrollY > 2) {
     document.body.classList.add("scrolled")
   }
-  else{
+  else {
     document.body.classList.remove("scrolled")
   }
 });
 
 
-function updateScrollDistance(){
+function updateScrollDistance() {
   d.showCorner = false
   d.showSection = false
   d.showCornerDesc = false
   d.currentCorner = null
-  let progress = window.scrollY / ( body.scrollHeight - window.innerHeight)
-  if(progress > 1){
+  let progress = window.scrollY / (body.scrollHeight - window.innerHeight)
+  if (progress > 1) {
     progress = 1
   }
   body.style.setProperty('--p', progress)
   d.p = progress
-  d.corners.forEach((corner, i)=>{
-    if(progress > corner.st && progress < corner.ed){
+  d.corners.forEach((corner, i) => {
+    if (progress > corner.st && progress < corner.ed) {
       d.showCorner = true
       d.cornerStart = corner.st
       d.cornerEnd = corner.ed
-      d.currentCorner = corner      
+      d.currentCorner = corner
     }
   })
-  d.sections.forEach((section, i)=>{
-    if(progress > section.st && progress < section.ed){
+  d.sections.forEach((section, i) => {
+    if (progress > section.st && progress < section.ed) {
       d.showSection = true
       d.sectionStart = section.st
       d.sectionEnd = section.ed
@@ -1077,19 +1103,19 @@ function updateScrollDistance(){
   })
 }
 
-function updatePageHeight(){
-  if(window.innerHeight < window.innerWidth){
+function updatePageHeight() {
+  if (window.innerHeight < window.innerWidth) {
     body.classList.remove("vertical")
     body.classList.add("horizontal")
   }
-  else{
+  else {
     body.classList.remove("horizontal")
     body.classList.add("vertical")
   }
 }
 
 window.addEventListener('scroll', updateScrollDistance)
-window.addEventListener('resize', function(){
+window.addEventListener('resize', function () {
   updateScrollDistance()
   updatePageHeight()
 })
@@ -1097,13 +1123,13 @@ window.addEventListener('resize', function(){
 updateScrollDistance()
 updatePageHeight()
 
-window.addEventListener("keyup",function(e){
-  if(e.key === "Escape") {
+window.addEventListener("keyup", function (e) {
+  if (e.key === "Escape") {
     d.showModal = false
   }
 })
 
-document.querySelector('.track-map > .inner').addEventListener('mousemove', function(event) {
+document.querySelector('.track-map > .inner').addEventListener('mousemove', function (event) {
   const innerRect = this.getBoundingClientRect();
   d.mX = (event.clientX - innerRect.left) / innerRect.width
   d.mY = (event.clientY - innerRect.top) / innerRect.height
